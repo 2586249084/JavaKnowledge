@@ -7,6 +7,8 @@ package polymorphism.music;
 
 import static util.Print.*;
 
+import util.Note;
+
 public class Wind extends Instrument {
 	// Redefine interface method:
 	// 重新定义接口方法

@@ -4,6 +4,7 @@ package polymorphism.music;
 // 重载而不是向上转型
 
 import static util.Print.*;
+import util.Note;
 
 class Stringed extends Instrument {
 	public void play(Note n) {

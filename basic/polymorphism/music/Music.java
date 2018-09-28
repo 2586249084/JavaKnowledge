@@ -3,6 +3,8 @@ package polymorphism.music;
 // Inheritance & upcasting.
 // 继承和向上转型
 
+import util.Note;
+
 public class Music {
 	public static void tune(Instrument i) {
 		i.play(Note.MIDDLE_C);

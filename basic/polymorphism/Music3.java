@@ -4,7 +4,8 @@ package polymorphism;
 // 一个可扩展的程序
 
 import static util.Print.*;
-import polymorphism.music.Note;
+
+import util.Note;
 
 class Instrument {
 	void play(Note n) { println("Instrument.play() " + n); }
