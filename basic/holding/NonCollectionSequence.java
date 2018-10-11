@@ -1,16 +1,14 @@
 package holding;
-//: holding/CollectionSequence.java
+//: holding/NonCollectionSequence.java
 
-import java.util.*;
 import typeinfo.pets.*;
+import java.util.*;
 
-public class CollectionSequence extends AbstractCollection<Pet> {
+class PetSequence {
+	protected Pet[] pets = Pets.createArray(8);
+}
 
-	private Pet[] pets = Pets.createArray(8);
-
-	public int size() {
-		return pets.length;
-	}
+public class NonCollectionSequence extends PetSequence {
 	
 	public Iterator<Pet> iterator() {
 		return new Iterator<Pet>() {
@@ -29,14 +27,12 @@ public class CollectionSequence extends AbstractCollection<Pet> {
 			}
 		};
 	}
-
+	
 	public static void main(String[] args) {
-		CollectionSequence c = new CollectionSequence();
-		InterfaceVsIterator.display(c);
-		InterfaceVsIterator.display(c.iterator());
+		 NonCollectionSequence nc = new NonCollectionSequence();
+		 InterfaceVsIterator.display(nc.iterator());
 	}
-
+	
 }/*Output:
-0 : Rat Default 1 : Manx Default 2 : Cymric Default 3 : Mutt Default 4 : Pug Default 5 : Cymric Default 6 : Pug Default 7 : Manx Default 
 0 : Rat Default 1 : Manx Default 2 : Cymric Default 3 : Mutt Default 4 : Pug Default 5 : Cymric Default 6 : Pug Default 7 : Manx Default 
 *///:~
