@@ -119,4 +119,24 @@ public class DynamicFields {
 	}
 	
 }/*Output:
+null: null
+null: null
+null: null
+
+d: A value for d
+number: 47
+number2: 48
+
+df : d: A new value for d
+number: 47
+number2: 48
+number3: 11
+
+df.getField('d') : A new value for d
+exceptions.DynamicFieldsException
+	at exceptions.DynamicFields.setField(DynamicFields.java:81)
+	at exceptions.DynamicFields.main(DynamicFields.java:113)
+Caused by: java.lang.NullPointerException
+	at exceptions.DynamicFields.setField(DynamicFields.java:82)
+	... 1 more
 *///:~
