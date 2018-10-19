@@ -1,4 +1,7 @@
 package util;
+//: util/Range.java
+// Tool classes for generates a custom array.
+// 生成自定义数组的工具类.
 
 public class Range {
 	

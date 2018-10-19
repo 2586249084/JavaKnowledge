@@ -1,7 +1,7 @@
 package util;
 //: util/Stack.java
 // Making a stack from a LinkedList.
-// 从一个LinkedList中创建一个堆栈
+// 从一个LinkedList中创建一个堆栈.
 
 import java.util.*;
 

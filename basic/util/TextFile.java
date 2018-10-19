@@ -1,9 +1,8 @@
 package util;
 //: util/TextFile.java
-
 // Static functions for reading and writing text files as
 // a single string, and treating a file as an ArrayList.
-// 将文本文件作为单个字符串读取和写入的静态函数，并将文件视为ArrayList
+// 将文本文件作为单个字符串读取和写入的静态函数，并将文件视为ArrayList.
 
 import java.io.*;
 import java.util.*;

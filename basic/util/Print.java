@@ -1,5 +1,7 @@
 package util;
 //: util/Print.java
+// Print tool class.
+// 打印工具类.
 
 import java.io.*;
 
