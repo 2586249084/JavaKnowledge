@@ -1,9 +1,11 @@
-package typeinfo.pets;
-//: typeinfo/pets/PetCount.java
+package typeinfo;
+//: typeinfo/PetCount.java
 // Using instanceof.
 //  π”√instanceof.
 
 import java.util.*;
+import typeinfo.pets.*;
+import static util.Print.*;
 
 public class PetCount {
 	
@@ -46,6 +48,13 @@ public class PetCount {
 			if (pet instanceof Hamster)
 				counter.count("Hamster");
 		}
+		println(counter);
 	}
 	
-}
+	public static void main(String[] args) {
+		countPets(new ForNameCreator());
+	}
+	
+}/*Output:
+{Pug=3, Rat=2, Cymric=5, Mouse=2, Cat=9, Manx=7, Rodent=5, Mutt=3, Dog=6, Pet=20, Hamster=1}
+*///:~

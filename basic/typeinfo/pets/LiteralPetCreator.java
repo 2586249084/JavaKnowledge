@@ -18,7 +18,7 @@ public class LiteralPetCreator extends PetCreator {
 	private static final List<Class<? extends Pet>> types = allTypes.subList(allTypes.indexOf(Mutt.class),
 			allTypes.size());
 	
-	public List<Class<? extends Pet>> types(){
+	public List<Class<? extends Pet>> types() {
 		return types;
 	}
 
