@@ -1,41 +1,43 @@
 package generics.coffee;
-// fenerics/coffee/CoffeeGenerator.java
-// Generate different types of Coffee:
-// 产生不同类型的咖啡:
+//: generics/coffee/CoffeeGenerator.java
 
-import java.util.*;
 import util.*;
+import java.util.*;
 
-public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
+public class CoffeeGenerator<T> implements Generator<T>, Iterable<T> {
 
-	@SuppressWarnings("rawtypes")
-	private Class[] types = { Latte.class, Mocha.class,
+	private Class<?>[] types = { Latte.class, Mocha.class, 
 			Cappuccino.class, Americano.class, Breve.class };
 
 	private static Random rand = new Random(47);
 
-	public CoffeeGenerator() { }
-
+	// For iteration:  为了迭代
 	private int size = 0;
+
+	public CoffeeGenerator() { }
 
 	public CoffeeGenerator(int size) {
 		this.size = size;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Coffee next() {
+	public T next() {
 		try {
-			return (Coffee) types[rand.nextInt(types.length)].newInstance();
-			// Report programmer errors at run time:
-			// 在运行时报告程序员错误:
+			return (T) types[rand.nextInt(types.length)].newInstance();
 		} catch (Exception exception) {
-			throw new RuntimeException(exception);
+			throw new RuntimeException();
 		}
 	}
-	
-	class CoffeeIterator implements Iterator<Coffee> {
+
+	@Override
+	public Iterator<T> iterator() {
+		return new CoffeeIterator();
+	}
+
+	class CoffeeIterator implements Iterator<T> {
 		
-		int count = size;
+		private int count = size;
 
 		@Override
 		public boolean hasNext() {
@@ -43,16 +45,30 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
 		}
 
 		@Override
-		public Coffee next() {
+		public T next() {
 			count--;
 			return CoffeeGenerator.this.next();
 		}
 		
 	}
-
-	@Override
-	public Iterator<Coffee> iterator() {
-		return new CoffeeIterator();
+	
+	public static void main(String[] args) {
+		CoffeeGenerator<Coffee> cg = new CoffeeGenerator<Coffee>();
+		for (int i = 0; i < 5; i++)
+			System.out.println(cg.next());
+		for (Coffee coffee : new CoffeeGenerator<Coffee>(5))
+			System.out.println(coffee);
 	}
 
-}
+}/* Output:
+Americano 0
+Latte 1
+Americano 2
+Mocha 3
+Mocha 4
+Breve 5
+Americano 6
+Latte 7
+Cappuccino 8
+Cappuccino 9
+*///:~
